@@ -93,8 +93,16 @@ class AllRecipesContainer extends Component {
     }));
   }
 
+  _handleCloseModal = () => {
+    this.setState((prevState, nextProps) => ({
+      viewModalOpen: false,
+      isEditing: false,
+      addModalOpen: false
+    }))
+  }
+
   _updateRecipe = ({ id, directions, ingredients, title, published, action }) => {
-    this.props.UpdateRecipeMutation({
+    this.props.updateRecipeMutation({
       variables: {
         id,
         directions,
@@ -145,6 +153,12 @@ class AllRecipesContainer extends Component {
       published: false,
       action: 'deleted'
     });
+  }
+
+  _handleOpenAddModal = () => {
+    this.setState((prevState, nextProps) => ({
+      addModalOpen: true
+    }));
   }
 
   _handleSubmit = event => {
@@ -266,7 +280,7 @@ class AllRecipesContainer extends Component {
           ) : (
             <Empty/>
           )}
-          <AddNewRecipe
+          <AddRecipeModal
             modalOpen={addModalOpen || isEditing}
             handleCloseModal={this._handleCloseModal}
             handleSubmit={this._handleSubmit}
@@ -290,4 +304,8 @@ class AllRecipesContainer extends Component {
   }
 }
 
-export default AllRecipesContainer;
+export default compose(
+  graphql(UpdateRecipe, { name: 'updateRecipeMutation' }),
+  graphql(AddNewRecipe, { name: 'addNewRecipeMutation' }),
+  graphql(GetAllPublishedRecipes)
+)(withApollo(AllRecipesContainer));

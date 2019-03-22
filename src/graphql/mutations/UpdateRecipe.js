@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-export default gql`muttion UpdateRecipe(
+export default gql`mutation UpdateRecipe(
     $id: ID!
     $directions: String!
     $title: String!

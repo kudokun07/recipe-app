@@ -1,7 +1,7 @@
 import { gql } from "apollo-boost";
 
 export default gql`query GetAllPublishedRecipes {
-  recipeps(where: { published: true}) {
+  recipes(where: { published: true}) {
     id
     create_at
     title
