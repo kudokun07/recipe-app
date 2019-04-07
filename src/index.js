@@ -9,7 +9,7 @@ import App from './App';
 import './index.css';
 
 const client = new ApolloClient({
-  uri: 'https://us1.prisma.sh/thuyhoanghvtt/recipe-db/dev'
+  uri: 'https://us1.prisma.sh/thuyhoanghvtt/recipe-db/dev/'
 });
 
 ReactDOM.render(

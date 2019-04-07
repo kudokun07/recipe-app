@@ -54,7 +54,7 @@ class AllRecipesContainer extends Component {
 
   _handleChecked = checked => {
     this.setState((prevState, nextProps) => ({
-      form: { ...prevState, published: checked }
+      form: { ...prevState.form, published: checked }
     }));
   }
 
@@ -181,7 +181,8 @@ class AllRecipesContainer extends Component {
           directions, 
           title,
           ingredients,
-          published
+          published,
+          
         },
         refetchQueries: [
           {
@@ -232,7 +233,6 @@ class AllRecipesContainer extends Component {
   render() {
     const { loading, recipes } = this.props.data;
     const { viewModalOpen, recipeData, isEditing, addModalOpen } = this.state;
-
     return (
       <Fragment>
         <ViewRecipeModal

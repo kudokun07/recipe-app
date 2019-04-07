@@ -12,7 +12,7 @@ export default gql`mutation UpdateRecipe(
       data: {
         directions: $directions
         title: $title
-        inngredients: $ingredients
+        ingredients: $ingredients
         published: $published
       }
     ) {

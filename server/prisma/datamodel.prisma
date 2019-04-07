@@ -1,7 +1,7 @@
 type Recipe {
   id: ID! @unique
-  create_at: DateTime! @createAt
-  update_at: DateTime! @updateAt
+  createdAt: DateTime! 
+  updatedAt: DateTime! 
   title: String! @unique
   ingredients: String! 
   directions: String!
